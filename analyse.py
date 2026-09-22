@@ -9,7 +9,7 @@ def top_ips(rows,n=10):
     return Counter(row['ip'] for row in rows).most_common(n)
 
 def status_count(rows):
-    return Counter(row['status'] for row in rows)
+    return Counter(row['status'] for row in rows).most_common()
 
 def error_rate(rows):
     total,errors=0,0
@@ -47,7 +47,7 @@ if __name__=='__main__':
     print('total request =',total_rows(rows))
     print('unique ips = ',unique_ips(rows))
     print('most ips = ',top_ips(rows))
-    print('status count = ',dict(status_count(rows)))
+    print('status count = ',status_count(rows))
     print('error rate = ',error_rate(rows))
     print('requests per hour = ',requests_per_hour(rows))
     print('top paths = ',top_paths(rows))

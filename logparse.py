@@ -2,8 +2,8 @@ import re
 LOG_PATTERN = re.compile(r'(?P<ip>\S+) \S+ \S+ \[(?P<time>[^\]]+)\] "(?P<method>\S+) (?P<path>\S+) [^"]*" (?P<status>\d{3}) (?P<size>\d+|-)')
 
 
-def read_file(file):
-    with open('sample.log','r') as file:
+def read_file(path):
+    with open(path) as file:
         for line in file:
             line=line.strip()
             if not line:
